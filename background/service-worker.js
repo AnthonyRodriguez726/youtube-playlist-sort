@@ -1,3 +1,8 @@
+const config = require('./config');
+const manifest = require('./manifest.json');
+
+manifest.oauth2.client_id = config.googleOauthClientId;
+
 chrome.runtime.onInstalled.addListener(function () {
     console.log('Extension installed');
   });
@@ -5,7 +10,6 @@ chrome.runtime.onInstalled.addListener(function () {
   chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'authenticate') {
       // Handle authentication flow
-      // ...
     } else if (request.action === 'applySort') {
       const sortingOption = request.sortingOption;
       // Send message to content script to apply sorting

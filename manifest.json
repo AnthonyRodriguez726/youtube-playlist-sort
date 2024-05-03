@@ -13,7 +13,8 @@
       "storage",
       "scripting",
       "activeTab",
-      "https://www.googleapis.com/*"
+      "https://www.googleapis.com/*",
+      "https://www.youtube.com/*"
     ],
     "host_permissions": [
       "https://www.youtube.com/*"
@@ -25,7 +26,16 @@
       "default_popup": "popup/popup.html"
     },
     "oauth2": {
-      "client_id": "YOUR_GOOGLE_OAUTH_CLIENT_ID",
-      "scopes": ["https://www.googleapis.com/auth/youtube.force-ssl"]
-    }
+      "client_id": "[CLIENT_ID]",
+      "scopes": [
+        "https://www.googleapis.com/auth/youtube.force-ssl",
+        "https://www.googleapis.com/auth/youtube.readonly"
+      ]
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["content-scripts.js"]
+      }
+    ]
   }
